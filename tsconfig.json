@@ -1,3 +1,22 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@commons": ["./src/commons/index.ts"],
+      "@components": ["./src/components/index.ts"],
+      "@configs": ["./src/configs/index.ts"],
+      "@contexts": ["./src/contexts/index.ts"],
+      "@screens": ["./src/screens/index.ts"],
+      "@routes": ["./src/routes/index.ts"],
+      "@utils": ["./src/utils/index.ts"],
+      "@assets": ["./src/assets/index.ts"],
+      "@constants": ["./src/constants/index.ts"],
+      "@layouts": ["./src/layouts/index.ts"],
+      "@hooks": ["./src/hooks/index.ts"],
+      "@api": ["./src/api/index.ts"]
+    }
+  }
 }
