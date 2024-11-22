@@ -5,7 +5,9 @@
       {
         "root": ["./src"],
         "alias": {
-          "@constants": "./src/constants"
+          "@constants": "./src/constants",
+          "@screens": "./src/screens",
+          "@routes": "./src/routes"
         }
       }
     ]

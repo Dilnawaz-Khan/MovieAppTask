@@ -1,11 +1,9 @@
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 
-const Dashboard = () => {
+export const Dashboard = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Dashboard</Text>
-    </View>
+    </SafeAreaView>
   );
 };
-
-export default Dashboard;

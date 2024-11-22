@@ -1,15 +1,5 @@
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-import {FONTS} from '@constants';
+import {AppNavigator} from '@routes';
 
-const App = () => {
-  return (
-    <SafeAreaView>
-      <Text style={{fontFamily: FONTS.POPPINS_BLACK}}>App</Text>
-    </SafeAreaView>
-  );
-};
-
-export default App;
-
-const styles = StyleSheet.create({});
+export default function App() {
+  return <AppNavigator />;
+}

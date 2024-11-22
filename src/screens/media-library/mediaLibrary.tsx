@@ -1,11 +1,9 @@
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 
-const MediaLibrary = () => {
+export const MediaLibrary = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>MediaLibrary</Text>
-    </View>
+    </SafeAreaView>
   );
 };
-
-export default MediaLibrary;

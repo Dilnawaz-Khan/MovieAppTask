@@ -1,11 +1,9 @@
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 
-const More = () => {
+export const More = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>More</Text>
-    </View>
+    </SafeAreaView>
   );
 };
-
-export default More;
