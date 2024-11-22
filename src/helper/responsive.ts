@@ -45,8 +45,3 @@ export const responsiveStyles = <T extends NamedStyles<T>>(
 ): ScaledStyles<T> => {
   return ScaledSheet.create(styles) as ScaledStyles<T>;
 };
-
-export default {
-  responsiveSize,
-  responsiveStyles,
-};

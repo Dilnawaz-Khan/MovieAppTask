@@ -11,4 +11,4 @@ const FONTS = {
   POPPINS_BLACK: 'Poppins-Black',
 };
 
-export default FONTS;
+export {FONTS};
