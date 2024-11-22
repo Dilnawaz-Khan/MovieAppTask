@@ -1,11 +1,11 @@
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {FONTS} from './src/constants/fonts';
+import {FONTS} from '@constants';
 
 const App = () => {
   return (
     <SafeAreaView>
-      <Text style={{fontFamily: FONTS.POPPINS_BOLD}}>App</Text>
+      <Text style={{fontFamily: FONTS.POPPINS_BLACK}}>App</Text>
     </SafeAreaView>
   );
 };

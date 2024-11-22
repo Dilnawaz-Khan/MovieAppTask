@@ -13,7 +13,7 @@
       "@routes": ["./src/routes/index.ts"],
       "@utils": ["./src/utils/index.ts"],
       "@assets": ["./src/assets/index.ts"],
-      "@constants": ["./src/constants/index.ts"],
+      "@constants": ["./src/constants"],
       "@layouts": ["./src/layouts/index.ts"],
       "@hooks": ["./src/hooks/index.ts"],
       "@api": ["./src/api/index.ts"]
