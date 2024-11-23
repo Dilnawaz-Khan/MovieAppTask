@@ -1,8 +1,8 @@
 import {Fragment} from 'react';
-import {ActivityIndicator, Text, TouchableOpacity, View} from 'react-native';
+import {ActivityIndicator, Pressable, Text, View} from 'react-native';
 
-import {useStyles} from './styles';
 import {hp} from '@helper';
+import {useStyles} from './styles';
 
 type ButtonProps = {
   isHollow?: boolean;
@@ -27,7 +27,7 @@ export const Button = ({
   const ICONSIZE = hp(10);
 
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={onPress}
       disabled={loading}
       style={styles({isHollow, fullWidth}).wrapper}>
@@ -43,6 +43,6 @@ export const Button = ({
           <Text style={styles({}).title}>{title}</Text>
         </Fragment>
       )}
-    </TouchableOpacity>
+    </Pressable>
   );
 };

@@ -10,13 +10,19 @@ import {
 } from 'react-native';
 import {useStyles} from './style';
 
-import {useMoviesDetails} from '@hooks';
+import {
+  useAppNavigation,
+  useAppRoute,
+  useMoviesDetails,
+  useWatchNavigation,
+  useWatchRoute,
+} from '@hooks';
 import {useEffect} from 'react';
 
 export const MovieDetail = () => {
-  const routes: any = useRoute();
-  const movieId = routes.params?.movieId;
-  const navigation: any = useNavigation();
+  const {params} = useAppRoute();
+  const movieId = params!.movieId;
+  const navigation = useAppNavigation();
   const {styles, white} = useStyles();
 
   const {
@@ -80,7 +86,7 @@ export const MovieDetail = () => {
 
           <Button
             onPress={() => {
-              // navigation.navigate(SCREENS.TICKETSELECTION);
+              navigation.navigate('seat-selection');
             }}
             title={'Get Tickets'}
             fullWidth

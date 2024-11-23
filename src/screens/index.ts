@@ -6,5 +6,5 @@ export * from './search-movies/serarchMovies';
 export * from './search-results/searchResults';
 export * from './movie-detail/movieDetail';
 export * from './trailer/trailer';
-export * from './ticket-booking/ticketBooking';
-export * from './seat-selection/seatSelection';
+export * from './ticket-booking/ticket-booking';
+export * from './seat-selection/seat-selection';

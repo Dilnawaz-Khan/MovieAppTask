@@ -40,7 +40,7 @@ export const SearchResults = () => {
             <SearchResultCard
               onPress={() =>
                 appNavigation.navigate('movie-detail', {
-                  movieId: item?.id,
+                  movieId: item.id,
                 })
               }
               title={item?.title}

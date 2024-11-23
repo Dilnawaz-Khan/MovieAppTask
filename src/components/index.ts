@@ -10,3 +10,4 @@ export * from './categoryViewCard/categoryViewCard';
 export * from './genreCard/genreCard';
 export * from './button/button';
 export * from './genreTags/genreTags';
+export * from './seatsCard/seatsCard';
