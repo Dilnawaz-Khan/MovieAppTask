@@ -1,3 +1,5 @@
+import {GenreDetails, SearchResult} from './apiTypes';
+
 export type RootStackParamList = {
   tabNavigation: undefined;
   'movie-detail': {movieId: number};
@@ -9,5 +11,8 @@ export type RootStackParamList = {
 export type WatchStackParamList = {
   watch: undefined;
   'search-movies': undefined;
-  'search-results': undefined;
+  'search-results': {
+    movies: SearchResult[];
+    categories: GenreDetails[];
+  };
 };

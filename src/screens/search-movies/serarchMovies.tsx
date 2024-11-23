@@ -23,6 +23,7 @@ export const SearchMovies = () => {
     topResults,
     handleTextChange,
     handleSubmitSearch,
+    getGenreName,
   } = useSearchMovies();
 
   return (
@@ -66,19 +67,11 @@ export const SearchMovies = () => {
                           }`
                         : null
                     }
-                    genre={
-                      item.genre_ids
-                        ?.map(
-                          (id: number) =>
-                            categories.find(category => category.id === id)
-                              ?.name,
-                        )
-                        .find((name: string | undefined) => name !== undefined) // Get only the first non-undefined genre name
-                    }
+                    genre={getGenreName(item.genre_ids)}
                   />
                 );
               }}
-              keyExtractor={(item, index) => index.toString()}
+              keyExtractor={item => item.id.toString()}
             />
           )}
         </View>

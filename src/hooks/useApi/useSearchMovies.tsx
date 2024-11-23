@@ -5,13 +5,16 @@ import {debounce} from 'lodash';
 import {useNavigation} from '@react-navigation/native';
 import {apiClient} from '@api';
 import {GenreDetails, SearchResult} from '@types';
+import {useWatch} from './useWatch';
+import {WatchStack} from 'src/routes/stack/watch-stack';
+import {useWatchNavigation} from '../navigation-hook/navigation-hook';
 export const useSearchMovies = () => {
   const [search, setSearch] = useState('');
   const [categories, setCategories] = useState<GenreDetails[]>([]);
   const [loading, setLoading] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
   const [topResults, setTopResults] = useState<SearchResult[]>([]);
-  const navigation: any = useNavigation();
+  const navigation = useWatchNavigation();
 
   useEffect(() => {
     fetchCategories();
@@ -38,7 +41,7 @@ export const useSearchMovies = () => {
     try {
       const movies = await searchMovie();
       if (!movies?.length) return;
-      //   navigation.navigate(SCREENS.SEARCHRESULTS, {movies, categories});
+      navigation.navigate('search-results', {movies, categories});
     } catch (error) {
       console.log('[Handle submit failed]', error);
       //   Alert.alert('Something went wrong while handling request');
@@ -84,6 +87,17 @@ export const useSearchMovies = () => {
     [],
   );
 
+  const getGenreName = (ids: number[]) => {
+    const genre =
+      ids
+        ?.map(
+          (id: number) => categories.find(category => category.id === id)?.name,
+        )
+        .find((name: string | undefined) => name !== undefined) ?? 'unknown';
+
+    return genre;
+  };
+
   return useMemo(
     () => ({
       search,
@@ -96,6 +110,7 @@ export const useSearchMovies = () => {
       handleTextChange,
       topResults,
       handleSubmitSearch,
+      getGenreName,
     }),
     [
       search,

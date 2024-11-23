@@ -1,5 +1,5 @@
-import {COLORS} from '@constants';
-import {hp, wp} from '@helper';
+import {COLORS, FONTS, horizontalSpace} from '@constants';
+import {hp, rfs, wp} from '@helper';
 import {StyleSheet} from 'react-native';
 
 export const useStyles = () => {
@@ -11,12 +11,13 @@ export const useStyles = () => {
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      paddingHorizontal: wp(2),
+      gap: hp(2),
+      paddingHorizontal: horizontalSpace,
     },
     title: {
-      fontFamily: 'Poppins-Medium',
-      fontSize: hp(4),
-      color: COLORS.white,
+      fontFamily: FONTS.POPPINS_MEDIUM,
+      fontSize: rfs(1.8),
+      color: '#202C43',
     },
     headerContent: {
       flex: 1,
