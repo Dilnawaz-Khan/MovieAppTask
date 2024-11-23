@@ -25,7 +25,6 @@ export const MovieCard: React.FC<MovieCardType> = ({
   uri,
   title,
   onPress,
-  cardStyles,
   textStyles,
 }) => {
   const {styles} = useStyles();

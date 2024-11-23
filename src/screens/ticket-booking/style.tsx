@@ -10,7 +10,8 @@ export const useStyles = () => {
     headerContainer: {
       flexDirection: 'row',
       alignItems: 'center',
-      paddingBottom: hp(1.6),
+      height: hp(8),
+      paddingHorizontal: horizontalSpace,
     },
     screenTitle: {
       flex: 1,
@@ -51,9 +52,9 @@ export const useStyles = () => {
     footer: {
       position: 'absolute',
       flexDirection: 'row',
-      bottom: bottom,
+      bottom: bottom + 10,
       alignItems: 'center',
-
+      // backgroundColor: '#fff',
       paddingHorizontal: horizontalSpace,
       gap: hp(2),
     },
@@ -61,9 +62,9 @@ export const useStyles = () => {
       backgroundColor: COLORS.silver,
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: wp(5),
-      paddingVertical: hp(1),
-      borderRadius: hp(1.4),
+      paddingHorizontal: wp(8),
+      paddingVertical: hp(0.7),
+      borderRadius: hp(1),
     },
     priceText: {
       fontFamily: FONTS.POPPINS_SEMIBOLD,
@@ -91,6 +92,7 @@ export const useStyles = () => {
     },
     footerContentView: {
       paddingHorizontal: wp(1),
+      // backgroundColor: '#fff',
     },
     rowDetails: {
       flexDirection: 'row',
@@ -114,13 +116,14 @@ export const useStyles = () => {
     numList: {
       flex: 0.1,
       justifyContent: 'center',
+
       // alignItems: 'center',
     },
     selectSeatBtn: {
       flex: 1,
       paddingHorizontal: wp(4),
       paddingVertical: hp(1.6),
-      borderRadius: hp(1.4),
+      borderRadius: hp(1),
       backgroundColor: COLORS.skyBlue,
       justifyContent: 'center',
       alignItems: 'center',

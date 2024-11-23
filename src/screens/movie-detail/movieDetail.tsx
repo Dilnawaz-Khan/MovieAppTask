@@ -21,7 +21,7 @@ import {useEffect} from 'react';
 
 export const MovieDetail = () => {
   const {params} = useAppRoute();
-  const movieId = params!.movieId;
+  const movieId = params?.movieId;
   const navigation = useAppNavigation();
   const {styles, white} = useStyles();
 
@@ -107,9 +107,7 @@ export const MovieDetail = () => {
       </ImageBackground>
 
       <View style={styles.detailsContainer}>
-        <ScrollView
-          style={styles.detailsContainer}
-          showsVerticalScrollIndicator={false}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {movieDetails && movieDetails?.genres?.length > 0 && (
             <View style={styles.genreView}>
               <CategoryText title="Genres" />

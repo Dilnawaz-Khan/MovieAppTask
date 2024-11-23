@@ -13,7 +13,7 @@ export const useStyles = () => {
     },
 
     headerContainer: {
-      marginTop: top - 20,
+      marginTop: top,
     },
     genreView: {
       // flex: 1,
@@ -23,8 +23,9 @@ export const useStyles = () => {
 
     detailsContainer: {
       height: hp(30),
-      padding: hp(2),
-      paddingBottom: bottom,
+      paddingHorizontal: horizontalSpace,
+      paddingTop: hp(1.5),
+      paddingBottom: bottom + 10,
     },
     imageStyles: {
       flex: 2,

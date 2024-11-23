@@ -1,4 +1,5 @@
-import {hp, wp} from '@helper';
+import {COLORS, FONTS} from '@constants';
+import {hp, rfs, wp} from '@helper';
 import {StyleSheet} from 'react-native';
 
 export const useStyles = () => {
@@ -12,18 +13,18 @@ export const useStyles = () => {
     doneButton: {
       position: 'absolute',
       overflow: 'visible',
-
-      top: hp(20),
+      bottom: hp(8),
       right: wp(2),
       alignSelf: 'center',
       zIndex: 2,
-      padding: hp(5),
+      padding: hp(1),
       backgroundColor: 'white',
       borderRadius: 5,
     },
     doneButtonText: {
-      color: 'black',
-      fontSize: 16,
+      fontFamily: FONTS.POPPINS_SEMIBOLD,
+      color: COLORS.black,
+      fontSize: rfs(2),
     },
     videoContainer: {
       flex: 1,

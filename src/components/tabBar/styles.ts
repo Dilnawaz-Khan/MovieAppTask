@@ -25,7 +25,7 @@ export const useStyles = () => {
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      height: hp(9.5),
+      height: hp(8.5),
       backgroundColor: COLORS.black,
       borderTopEndRadius: hp(2.7),
       borderTopStartRadius: hp(2.7),

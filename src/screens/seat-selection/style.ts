@@ -22,7 +22,8 @@ export const useStyles = () => {
     headerContainer: {
       flexDirection: 'row',
       alignItems: 'center',
-      paddingBottom: hp(1.6),
+      height: hp(8),
+      paddingHorizontal: horizontalSpace,
     },
     screenTitle: {
       flex: 1,

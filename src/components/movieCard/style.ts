@@ -24,7 +24,7 @@ export const useStyles = () => {
     },
     movieNameContainer: {
       width: '100%',
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      backgroundColor: 'rgba(0, 0, 0, 0.2)',
       paddingVertical: hp(1),
       paddingHorizontal: hp(2),
       justifyContent: 'center',
@@ -32,7 +32,7 @@ export const useStyles = () => {
 
     title: {
       fontFamily: FONTS.POPPINS_SEMIBOLD,
-      fontSize: rfs(2.8),
+      fontSize: rfs(2),
       color: COLORS.white,
       // lineHeight: 22.5,
     },
