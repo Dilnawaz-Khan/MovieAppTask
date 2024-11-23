@@ -1,1 +1,1 @@
-
+export * from './tabBar/tabBar';
