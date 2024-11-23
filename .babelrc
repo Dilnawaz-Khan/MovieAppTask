@@ -12,7 +12,9 @@
           "@hooks": "./src/hooks",
           "@assets": "./src/assets",
           "@components": "./src/components",
-          "@helper": "./src/helper"
+          "@helper": "./src/helper",
+          "@api": "./src/api",
+          "@layouts": "./src/layouts"
         }
       }
     ]

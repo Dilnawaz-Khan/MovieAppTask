@@ -1,6 +1,6 @@
 export type RootStackParamList = {
   tabNavigation: undefined;
-  'movie-detail': undefined;
+  'movie-detail': {movieId: number};
   trailer: undefined;
   'seat-selection': undefined;
   'ticket-booking': undefined;

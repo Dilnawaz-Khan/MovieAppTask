@@ -1,13 +1,11 @@
 import {StyleSheet} from 'react-native';
 
-import {COLORS} from '@constants';
-import {wp} from '@helper';
+import {hp} from '@helper';
 
 export const useStyles = () => {
   const styles = StyleSheet.create({
-    mainWrapper: {
+    cardStyles: {
       flex: 1,
-      backgroundColor: COLORS.white,
     },
   });
 
