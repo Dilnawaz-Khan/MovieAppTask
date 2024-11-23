@@ -1,9 +1,11 @@
-import {View, Text, SafeAreaView} from 'react-native';
+import {Text} from 'react-native';
+
+import {ScreenWrapper} from '@components';
 
 export const More = () => {
   return (
-    <SafeAreaView>
+    <ScreenWrapper>
       <Text>More</Text>
-    </SafeAreaView>
+    </ScreenWrapper>
   );
 };

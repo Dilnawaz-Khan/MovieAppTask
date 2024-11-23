@@ -1,9 +1,11 @@
-import {View, Text, SafeAreaView} from 'react-native';
+import {Text} from 'react-native';
+
+import {ScreenWrapper} from '@components';
 
 export const Dashboard = () => {
   return (
-    <SafeAreaView>
+    <ScreenWrapper>
       <Text>Dashboard</Text>
-    </SafeAreaView>
+    </ScreenWrapper>
   );
 };

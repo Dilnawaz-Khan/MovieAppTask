@@ -1,11 +1,12 @@
+import {ScreenWrapper} from '@components';
 import {useWatchNavigation} from '@hooks';
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 
 export const Watch = () => {
   const navigation = useWatchNavigation();
   return (
-    <View>
+    <ScreenWrapper>
       <Text onPress={() => navigation.navigate('search-movies')}>Watch</Text>
-    </View>
+    </ScreenWrapper>
   );
 };
