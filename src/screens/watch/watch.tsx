@@ -1,9 +1,11 @@
+import {useWatchNavigation} from '@hooks';
 import {View, Text} from 'react-native';
 
 export const Watch = () => {
+  const navigation = useWatchNavigation();
   return (
     <View>
-      <Text>Watch</Text>
+      <Text onPress={() => navigation.navigate('search-movies')}>Watch</Text>
     </View>
   );
 };
