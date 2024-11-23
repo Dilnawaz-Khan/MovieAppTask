@@ -3,8 +3,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {MovieDetail, SeatSelection, TicketBooking, Trailer} from '@screens';
 import {BottomTab} from './bottom-tab';
+import {RootStackParamList} from '@types';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 export const AppNavigator = () => {
   return (

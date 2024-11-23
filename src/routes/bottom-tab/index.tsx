@@ -7,7 +7,7 @@ const Tab = createBottomTabNavigator();
 
 export const BottomTab = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen name="dashboard" component={Dashboard} />
       <Tab.Screen name="watchStack" component={WatchStack} />
       <Tab.Screen name="mediaLibrary" component={MediaLibrary} />

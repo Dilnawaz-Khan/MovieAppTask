@@ -16,7 +16,8 @@
       "@constants": ["./src/constants"],
       "@layouts": ["./src/layouts/index.ts"],
       "@hooks": ["./src/hooks/index.ts"],
-      "@api": ["./src/api/index.ts"]
+      "@api": ["./src/api/index.ts"],
+      "@types": ["./src/types/index.ts"]
     }
   }
 }
