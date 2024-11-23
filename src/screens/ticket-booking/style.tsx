@@ -1,17 +1,41 @@
-import {COLORS} from '@constants';
+import {COLORS, FONTS, horizontalSpace} from '@constants';
 import {hp, rfs, wp} from '@helper';
 import {Platform, StyleSheet} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export const useStyles = () => {
+  const {bottom} = useSafeAreaInsets();
+  const iconSize = hp(4);
   const styles = StyleSheet.create({
-    contentView: {
-      flex: 1,
-      justifyContent: 'center',
-    },
-    upperContent: {
-      // top: -hp(30),
+    headerContainer: {
       flexDirection: 'row',
       alignItems: 'center',
+      paddingBottom: hp(1.6),
+    },
+    screenTitle: {
+      flex: 1,
+      alignItems: 'center',
+      gap: hp(0.3),
+      marginRight: hp(3),
+    },
+    title: {
+      fontFamily: FONTS.POPPINS_MEDIUM,
+      fontSize: rfs(2),
+      color: '#202C43',
+    },
+    subTitle: {
+      fontFamily: FONTS.POPPINS_SEMIBOLD,
+      fontSize: rfs(1.7),
+      color: COLORS.skyBlue,
+    },
+    contentView: {
+      paddingHorizontal: horizontalSpace,
+    },
+    upperContent: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: hp(1),
     },
     itemCard: {
       backgroundColor: COLORS.white,
@@ -27,45 +51,41 @@ export const useStyles = () => {
     footer: {
       position: 'absolute',
       flexDirection: 'row',
-      bottom: hp(6),
+      bottom: bottom,
       alignItems: 'center',
-      justifyContent: 'space-evenly',
-      right: 0,
-      left: 0,
+
+      paddingHorizontal: horizontalSpace,
+      gap: hp(2),
     },
     payView: {
       backgroundColor: COLORS.silver,
-      paddingHorizontal: wp(2),
       alignItems: 'center',
       justifyContent: 'center',
+      paddingHorizontal: wp(5),
       paddingVertical: hp(1),
-      borderRadius: hp(3),
+      borderRadius: hp(1.4),
     },
     priceText: {
-      fontFamily: 'Poppins-SemiBold',
-      fontSize: hp(4),
+      fontFamily: FONTS.POPPINS_SEMIBOLD,
+      fontSize: rfs(1.8),
     },
     priceLabel: {
-      fontFamily: 'Poppins-Regular',
-      fontSize: rfs(2),
+      fontFamily: FONTS.POPPINS_REGULAR,
+      fontSize: rfs(1.3),
     },
     numTexts: {
-      fontFamily: 'Poppins-Regular',
-      fontSize: rfs(2.5),
+      fontFamily: FONTS.POPPINS_REGULAR,
+      fontSize: rfs(1.5),
     },
     seatItem: {
       flexDirection: 'row',
+      flex: 1,
 
-      height: hp(8),
-      width: wp(15),
-      marginHorizontal: wp(2),
-      marginVertical: hp(1),
       alignItems: 'center',
-      // justifyContent:'space-evenly'
     },
     seatItemText: {
-      fontFamily: 'Poppins-Medium',
-      fontSize: rfs(3),
+      fontFamily: FONTS.POPPINS_MEDIUM,
+      fontSize: rfs(1.3),
       marginLeft: hp(2),
       color: COLORS.gray,
     },
@@ -75,28 +95,46 @@ export const useStyles = () => {
     rowDetails: {
       flexDirection: 'row',
       alignItems: 'center',
-      position: 'absolute',
-      bottom: -hp(20),
-      marginHorizontal: wp(3),
-      paddingHorizontal: wp(3),
-      borderRadius: hp(3),
-      paddingVertical: hp(2),
+      justifyContent: 'space-between',
+      width: wp(30),
+      borderRadius: hp(1.4),
+      paddingVertical: hp(0.6),
+      paddingHorizontal: hp(1.2),
       backgroundColor: COLORS.silver,
+      marginTop: hp(4),
     },
     crossText: {
-      fontSize: hp(4),
-
-      marginLeft: hp(2),
+      fontSize: rfs(3),
+    },
+    numberListContainer: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     numList: {
       flex: 0.1,
-      paddingTop: hp(15),
+      justifyContent: 'center',
+      // alignItems: 'center',
+    },
+    selectSeatBtn: {
+      flex: 1,
+      paddingHorizontal: wp(4),
+      paddingVertical: hp(1.6),
+      borderRadius: hp(1.4),
+      backgroundColor: COLORS.skyBlue,
       justifyContent: 'center',
       alignItems: 'center',
+    },
+
+    btnText: {
+      fontFamily: FONTS.POPPINS_MEDIUM,
+      fontSize: rfs(1.8),
+      color: '#fff',
     },
   });
 
   return {
     styles,
+    iconSize,
   };
 };
