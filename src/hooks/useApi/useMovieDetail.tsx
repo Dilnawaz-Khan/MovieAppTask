@@ -1,16 +1,17 @@
 import {apiClient} from '@api';
-import {useNavigation} from '@react-navigation/native';
+
 import {MovieDetail} from '@types';
 
-import {useCallback, useEffect, useMemo, useState} from 'react';
+import {useMemo, useState} from 'react';
 import {Alert} from 'react-native';
+import {useAppNavigation} from '../navigation-hook/navigation-hook';
 
 export const useMoviesDetails = () => {
   const [movieDetails, setMovieDetails] = useState<MovieDetail | undefined>();
   const [loading, setLoading] = useState(false);
   const [trailerVideo, setTrailerVideo] = useState('');
   const [BtnLoading, setBtnLoading] = useState(false);
-  const navigation: any = useNavigation();
+  const navigation = useAppNavigation();
 
   const getMovieDetails = async (id: number) => {
     try {
@@ -42,10 +43,10 @@ export const useMoviesDetails = () => {
 
       if (!trailer || !trailer.key)
         return Alert.alert('There was no trailer found for this movie');
-      // navigation.navigate(SCREENS.WATCHTRAILER, {
-      //   trailer: `https://www.youtube.com/embed/${trailer?.key}?autoplay=1&controls=0`,
-      //   trailerKey: trailer?.key,
-      // });
+      navigation.navigate('trailer', {
+        trailer: `https://www.youtube.com/embed/${trailer?.key}?autoplay=1&controls=0`,
+        trailerKey: trailer?.key,
+      });
     } catch (error) {
       Alert.alert("Movie Trailer wasn't fetched");
       console.log('[Err in getting trailer]', error);

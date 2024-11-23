@@ -3,7 +3,7 @@ import {GenreDetails, SearchResult} from './apiTypes';
 export type RootStackParamList = {
   tabNavigation: undefined;
   'movie-detail': {movieId: number};
-  trailer: undefined;
+  trailer: {trailerKey: string; trailer: string};
   'seat-selection': undefined;
   'ticket-booking': undefined;
 };

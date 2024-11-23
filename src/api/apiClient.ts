@@ -6,6 +6,7 @@ import {
   GenreResponse,
   MovieDetail,
   SearchResponse,
+  TrailerResponse,
   UpcomingMoviesResponse,
   UpcomingMovieType,
 } from '@types';
@@ -73,21 +74,25 @@ export const apiClient = {
       };
     }
   },
-  fetchTrailer: async (id: number): Promise<ApiResponse<any[]>> => {
+  fetchTrailer: async (id: number): Promise<ApiResponse<TrailerResponse>> => {
     try {
       const response = await axiosInstance.get(
         `movie/${id}/videos?api_key=${keys.api_key}`,
       );
+
       return {
         success: true,
-        message: 'Success',
+        message: 'Trailer fetched ',
         data: response.data,
       };
     } catch (error) {
       return {
         success: false,
         message: 'Failed to fetch trailer',
-        data: [],
+        data: {
+          id: -1,
+          results: [],
+        },
         error: error instanceof Error ? error : new Error(String(error)),
       };
     }
