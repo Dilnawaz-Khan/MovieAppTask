@@ -2,10 +2,12 @@ import {ActivityIndicator, FlatList, View} from 'react-native';
 import {MovieCard} from '../movieCard/movieCard';
 
 import {useStyles} from './style';
+import {GenreCard} from '../genreCard/genreCard';
+import {GenreDetails} from '@types';
 
 type CategoryViewCard = {
   loading: boolean;
-  categories: any;
+  categories: GenreDetails[];
 };
 
 export const CategoryViewCard = ({loading, categories}: CategoryViewCard) => {
@@ -16,19 +18,13 @@ export const CategoryViewCard = ({loading, categories}: CategoryViewCard) => {
         <ActivityIndicator />
       ) : (
         <FlatList
+          showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.contentContainerStyle}
           numColumns={2}
+          columnWrapperStyle={{gap: 10}}
           data={categories}
-          renderItem={({item}: {item: any}) => {
-            return (
-              <MovieCard
-                title={item?.name}
-                uri={item?.imageUrl}
-                cardStyles={styles.itemCard}
-                onPress={() => undefined}
-                textStyles={styles.itemText}
-              />
-            );
+          renderItem={({item}) => {
+            return <GenreCard title={item.name} poster={item.imageUrl} />;
           }}
         />
       )}

@@ -1,13 +1,13 @@
 import {COLORS} from '@constants';
-import {hp, wp} from '@helper';
+import {hp, rfs, wp} from '@helper';
 import {StyleSheet} from 'react-native';
 
 export const useStyles = () => {
+  const iconSize = hp(2);
   const styles = StyleSheet.create({
     wrapper: {
       flexDirection: 'row',
       marginVertical: hp(0.5),
-      marginHorizontal: wp(1),
     },
 
     contentView: {
@@ -25,22 +25,23 @@ export const useStyles = () => {
     titleText: {
       marginVertical: hp(1),
       fontFamily: 'Poppins-Medium',
-      fontSize: hp(4),
-      color: COLORS.black,
+      fontSize: rfs(1.7),
+      color: '#202C43',
     },
     categoryText: {
       fontFamily: 'Poppins-Medium',
-      fontSize: hp(3),
+      fontSize: rfs(1.5),
       color: COLORS.gray,
     },
     image: {
-      height: hp(25),
-      width: wp(15),
-      borderRadius: hp(3),
+      height: hp(15),
+      width: wp(35),
+      borderRadius: hp(1),
     },
   });
 
   return {
     styles,
+    iconSize,
   };
 };

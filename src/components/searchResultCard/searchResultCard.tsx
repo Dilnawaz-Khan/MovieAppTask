@@ -1,8 +1,9 @@
 import {Dots, DummyImage} from '@assets';
 import {Card} from '@layouts';
-import {Image, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import {useStyles} from './style';
 import {FC} from 'react';
+import {Image} from '../image/image';
 
 type SearchResultCardType = {
   imageUrl?: string | null;
@@ -17,7 +18,7 @@ export const SearchResultCard: FC<SearchResultCardType> = ({
   imageUrl,
   genre,
 }) => {
-  const {styles} = useStyles();
+  const {styles, iconSize} = useStyles();
   return (
     <Card style={styles.wrapper} onPress={onPress}>
       <View>
@@ -32,8 +33,7 @@ export const SearchResultCard: FC<SearchResultCardType> = ({
           <Text style={styles.titleText}>{title ?? 'Unknown'} </Text>
           <Text style={styles.categoryText}>{genre ?? 'unknown'} </Text>
         </View>
-
-        <Dots />
+        <Dots height={iconSize} width={iconSize} />
       </View>
     </Card>
   );

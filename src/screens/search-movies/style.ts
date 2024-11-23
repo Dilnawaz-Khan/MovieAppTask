@@ -1,5 +1,5 @@
-import {COLORS, horizontalSpace} from '@constants';
-import {hp, wp} from '@helper';
+import {COLORS, FONTS, horizontalSpace} from '@constants';
+import {hp, rfs, wp} from '@helper';
 import {Platform, StyleSheet} from 'react-native';
 
 export const useStyles = () => {
@@ -8,11 +8,14 @@ export const useStyles = () => {
       paddingTop: hp(1),
       paddingHorizontal: horizontalSpace,
       alignItems: 'center',
-      paddingBottom: hp(6),
+      marginBottom: hp(1),
     },
     contentView: {
       flex: 1,
-      top: hp(3),
+      top: hp(1),
+      backgroundColor: COLORS.silver,
+      paddingHorizontal: horizontalSpace,
+      paddingTop: hp(2),
     },
     IconView: {
       flex: 0.1,
@@ -27,12 +30,18 @@ export const useStyles = () => {
       fontSize: hp(4),
     },
     categoryHeader: {
-      marginTop: hp(5),
-      height: hp(8),
-      marginBottom: hp(2),
-      marginHorizontal: wp(2),
+      justifyContent: 'center',
+      height: hp(4),
+      marginBottom: hp(1),
+      marginHorizontal: horizontalSpace,
       borderBottomWidth: 0.5,
       borderColor: COLORS.silver,
+    },
+    topResults: {
+      fontFamily: FONTS.POPPINS_MEDIUM,
+      fontSize: rfs(1.6),
+      color: '#202C43',
+      height: hp(3),
     },
     contentContainerStyle: {
       paddingBottom: hp(5),

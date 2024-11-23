@@ -1,4 +1,4 @@
-import {COLORS} from '@constants';
+import {COLORS, horizontalSpace} from '@constants';
 import {hp, wp} from '@helper';
 import {Platform, StyleSheet} from 'react-native';
 
@@ -14,14 +14,16 @@ export const useStyles = () => {
     },
     contentView: {
       flex: 1,
-      top: hp(3),
+
+      backgroundColor: COLORS.white,
+      paddingHorizontal: horizontalSpace,
     },
     IconView: {
       flex: 0.1,
     },
     itemCard: {
-      width: wp(22),
-      height: hp(30),
+      width: '50%',
+      height: hp(10),
       borderRadius: hp(5),
       marginHorizontal: wp(0.5),
     },
@@ -38,6 +40,7 @@ export const useStyles = () => {
     },
     contentContainerStyle: {
       paddingBottom: hp(5),
+      gap: 10,
     },
   });
 

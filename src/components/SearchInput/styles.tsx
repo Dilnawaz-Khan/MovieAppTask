@@ -9,6 +9,9 @@ export const useStyles = () => {
   const grayColor = COLORS.gray;
 
   const styles = StyleSheet.create({
+    mainContainer: {
+      backgroundColor: COLORS.white,
+    },
     containerView: {
       flexDirection: 'row',
       backgroundColor: COLORS.silver,

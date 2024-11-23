@@ -4,6 +4,7 @@ import {
   Genre,
   GenreDetails,
   GenreResponse,
+  SearchResponse,
   UpcomingMoviesResponse,
   UpcomingMovieType,
 } from '@types';
@@ -144,14 +145,31 @@ export const apiClient = {
       };
     }
   },
-  searchMovie: async (movieName: string): Promise<ApiResponse<any[]>> => {
+  searchMovie: async (
+    movieName: string,
+  ): Promise<ApiResponse<SearchResponse>> => {
     try {
-      const response = await axiosInstance.get(
+      const response = await axiosInstance.get<SearchResponse>(
         `/search/movie?api_key=${keys.api_key}&query=${movieName}`,
       );
-      return response.data;
+
+      return {
+        success: true,
+        message: 'movies result for the search term',
+        data: response.data,
+      };
     } catch (error) {
-      throw error;
+      return {
+        success: false,
+        message: 'Failed to fetch genres details',
+        data: {
+          page: 0,
+          results: [],
+          total_pages: 0,
+          total_results: 0,
+        },
+        error: error instanceof Error ? error : new Error(String(error)),
+      };
     }
   },
 };

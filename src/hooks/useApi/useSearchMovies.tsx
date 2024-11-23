@@ -4,12 +4,13 @@ import {debounce} from 'lodash';
 
 import {useNavigation} from '@react-navigation/native';
 import {apiClient} from '@api';
+import {GenreDetails, SearchResult} from '@types';
 export const useSearchMovies = () => {
   const [search, setSearch] = useState('');
-  const [categories, setCategories] = useState<any[]>([]);
+  const [categories, setCategories] = useState<GenreDetails[]>([]);
   const [loading, setLoading] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
-  const [topResults, setTopResults] = useState<any[]>([]);
+  const [topResults, setTopResults] = useState<SearchResult[]>([]);
   const navigation: any = useNavigation();
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export const useSearchMovies = () => {
     try {
       if (loading) return;
       setLoading(true);
-      const result: any = await apiClient.fetchGenres();
+      const result = await apiClient.fetchGenres();
       if (!result?.success) throw result?.error;
       setCategories(result?.data);
     } catch (error) {
@@ -55,8 +56,8 @@ export const useSearchMovies = () => {
         setSearchLoading(true);
         const resp = await apiClient.searchMovie(query);
         if (!resp?.success) throw resp?.error;
-        setTopResults(resp?.data!?.splice(0, 3));
-        return resp?.data || [];
+        setTopResults(resp.data.results.splice(0, 3));
+        return resp?.data.results || [];
       } catch (error) {
         console.log('[Err fetching the search results]', error);
         Toast.show('Search not found', Toast.LONG, {

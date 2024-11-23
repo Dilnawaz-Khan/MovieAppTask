@@ -7,3 +7,4 @@ export * from './WatchHeader/index';
 export * from './SearchInput/index';
 export * from './searchResultCard/searchResultCard';
 export * from './categoryViewCard/categoryViewCard';
+export * from './genreCard/genreCard';

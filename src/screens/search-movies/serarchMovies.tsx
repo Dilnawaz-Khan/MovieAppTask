@@ -43,48 +43,43 @@ export const SearchMovies = () => {
           {searchLoading ? (
             <ActivityIndicator />
           ) : (
-            <>
-              <View style={styles.categoryHeader}>
-                {topResults.length > 0 && <Text>Top Results</Text>}
-              </View>
-
-              <FlatList
-                data={topResults}
-                contentContainerStyle={styles.contentContainerStyle}
-                renderItem={({item, index}: {item: any; index: number}) => {
-                  return (
-                    <SearchResultCard
-                      onPress={
-                        () => null
-                        // navigation.navigate(SCREENS.MOVIEDETAILS, {
-                        //   movieId: item?.id,
-                        // })
-                      }
-                      title={item?.title}
-                      imageUrl={
-                        item?.poster_path || item?.backdrop_path
-                          ? `https://image.tmdb.org/t/p/w780${
-                              item?.poster_path ?? item?.backdrop_path
-                            }`
-                          : null
-                      }
-                      genre={
-                        item.genre_ids
-                          ?.map(
-                            (id: number) =>
-                              categories.find(category => category.id === id)
-                                ?.name,
-                          )
-                          .find(
-                            (name: string | undefined) => name !== undefined,
-                          ) // Get only the first non-undefined genre name
-                      }
-                    />
-                  );
-                }}
-                keyExtractor={(item, index) => index.toString()}
-              />
-            </>
+            <FlatList
+              data={topResults}
+              contentContainerStyle={styles.contentContainerStyle}
+              ListHeaderComponent={() => (
+                <Text style={styles.topResults}>Top Results</Text>
+              )}
+              renderItem={({item}) => {
+                return (
+                  <SearchResultCard
+                    onPress={
+                      () => null
+                      // navigation.navigate(SCREENS.MOVIEDETAILS, {
+                      //   movieId: item?.id,
+                      // })
+                    }
+                    title={item?.title}
+                    imageUrl={
+                      item?.poster_path || item?.backdrop_path
+                        ? `https://image.tmdb.org/t/p/w780${
+                            item?.poster_path ?? item?.backdrop_path
+                          }`
+                        : null
+                    }
+                    genre={
+                      item.genre_ids
+                        ?.map(
+                          (id: number) =>
+                            categories.find(category => category.id === id)
+                              ?.name,
+                        )
+                        .find((name: string | undefined) => name !== undefined) // Get only the first non-undefined genre name
+                    }
+                  />
+                );
+              }}
+              keyExtractor={(item, index) => index.toString()}
+            />
           )}
         </View>
       ) : (
