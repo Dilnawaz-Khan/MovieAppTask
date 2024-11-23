@@ -10,7 +10,10 @@ const Stack = createStackNavigator<RootStackParamList>();
 export const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
         <Stack.Screen name="tabNavigation" component={BottomTab} />
         <Stack.Screen name="movie-detail" component={MovieDetail} />
         <Stack.Screen name="trailer" component={Trailer} />
