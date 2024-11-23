@@ -4,6 +4,7 @@ import {
   Genre,
   GenreDetails,
   GenreResponse,
+  MovieDetail,
   SearchResponse,
   UpcomingMoviesResponse,
   UpcomingMovieType,
@@ -51,14 +52,25 @@ export const apiClient = {
       };
     }
   },
-  fetchMovieById: async (id: number): Promise<ApiResponse<any[]>> => {
+  fetchMovieById: async (
+    id: number,
+  ): Promise<ApiResponse<MovieDetail | undefined>> => {
     try {
-      const response = await axiosInstance.get(
+      const response = await axiosInstance.get<MovieDetail>(
         `movie/${id}?api_key=${keys.api_key}`,
       );
-      return response.data;
+      return {
+        success: true,
+        message: 'movie details fetched',
+        data: response.data,
+      };
     } catch (error) {
-      throw error;
+      return {
+        error: error instanceof Error ? error : new Error(String(error)),
+        message: 'Failed to fetch movie details',
+        success: false,
+        data: undefined,
+      };
     }
   },
   fetchTrailer: async (id: number): Promise<ApiResponse<any[]>> => {

@@ -12,6 +12,8 @@ type HeaderProps = {
   isAlignedStart?: boolean;
   backgroundColor?: string;
   subtitle?: string;
+  iconColor?: string;
+  textColor?: string;
 };
 
 export const Header: FC<HeaderProps> = ({
@@ -21,11 +23,13 @@ export const Header: FC<HeaderProps> = ({
   isAlignedStart,
   backgroundColor,
   subtitle,
+  iconColor,
+  textColor,
 }) => {
-  const {styles, iconSize} = useStyles();
+  const {styles, iconSize, iconColor: staticColor} = useStyles();
 
   return (
-    <View style={styles.wrapper}>
+    <View style={[styles.wrapper, {backgroundColor}]}>
       <TouchableOpacity onPress={onPress}>
         {Icon ? (
           <Icon height={iconSize} width={iconSize} color={backgroundColor} />
@@ -33,7 +37,7 @@ export const Header: FC<HeaderProps> = ({
           <BackIcon
             height={iconSize}
             width={iconSize}
-            color={backgroundColor}
+            color={iconColor ?? staticColor}
           />
         )}
       </TouchableOpacity>
@@ -46,7 +50,9 @@ export const Header: FC<HeaderProps> = ({
           },
         ]}>
         <View style={{alignItems: isAlignedStart ? 'flex-start' : 'center'}}>
-          <Text style={[styles.title]}>{title ?? 'Watch'}</Text>
+          <Text style={[styles.title, {color: textColor}]}>
+            {title ?? 'Watch'}
+          </Text>
           {subtitle && (
             <Text style={[styles.subTitle]}>{subtitle ?? 'Watch'}</Text>
           )}

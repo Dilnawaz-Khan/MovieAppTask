@@ -4,12 +4,13 @@ import {
   SearchResultCard,
   CategoryViewCard,
 } from '@components';
-import {useSearchMovies, useWatchNavigation} from '@hooks';
+import {useAppNavigation, useSearchMovies, useWatchNavigation} from '@hooks';
 import {View, Text, ActivityIndicator, FlatList} from 'react-native';
 import {useStyles} from './style';
 
 export const SearchMovies = () => {
   const watchNavigation = useWatchNavigation();
+  const appNavigation = useAppNavigation();
   const {styles} = useStyles();
 
   const {
@@ -53,11 +54,10 @@ export const SearchMovies = () => {
               renderItem={({item}) => {
                 return (
                   <SearchResultCard
-                    onPress={
-                      () => null
-                      // navigation.navigate(SCREENS.MOVIEDETAILS, {
-                      //   movieId: item?.id,
-                      // })
+                    onPress={() =>
+                      appNavigation.navigate('movie-detail', {
+                        movieId: item?.id,
+                      })
                     }
                     title={item?.title}
                     imageUrl={

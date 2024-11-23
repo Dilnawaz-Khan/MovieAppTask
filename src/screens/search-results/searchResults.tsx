@@ -1,12 +1,13 @@
 import {FlatList, View} from 'react-native';
 
 import {Header, ScreenWrapper, SearchResultCard} from '@components';
-import {useWatchNavigation, useWatchRoute} from '@hooks';
+import {useAppNavigation, useWatchNavigation, useWatchRoute} from '@hooks';
 import {useStyles} from './style';
 
 export const SearchResults = () => {
   const {params} = useWatchRoute();
-  const navigation = useWatchNavigation();
+  const watchNavigation = useWatchNavigation();
+  const appNavigation = useAppNavigation();
   const movies = params?.movies ?? [];
   const categories = params?.categories ?? [];
 
@@ -27,7 +28,7 @@ export const SearchResults = () => {
     <ScreenWrapper>
       <Header
         isAlignedStart
-        onPress={() => navigation.goBack()}
+        onPress={() => watchNavigation.goBack()}
         title={`${movies?.length} Results Found`}
       />
       <View style={styles.contentView}>
@@ -37,9 +38,10 @@ export const SearchResults = () => {
           contentContainerStyle={styles.contentContainerStyle}
           renderItem={({item}: {item: any}) => (
             <SearchResultCard
-              onPress={
-                () => null
-                // navigation.navigate(SCREENS.MOVIEDETAILS, {movieId: item?.id})
+              onPress={() =>
+                appNavigation.navigate('movie-detail', {
+                  movieId: item?.id,
+                })
               }
               title={item?.title}
               imageUrl={

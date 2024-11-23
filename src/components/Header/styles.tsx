@@ -4,6 +4,7 @@ import {StyleSheet} from 'react-native';
 
 export const useStyles = () => {
   const iconSize = hp(3);
+  const iconColor = COLORS.black;
   const styles = StyleSheet.create({
     wrapper: {
       backgroundColor: COLORS.white,
@@ -11,7 +12,7 @@ export const useStyles = () => {
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      gap: hp(2),
+      gap: hp(1),
       paddingHorizontal: horizontalSpace,
     },
     title: {
@@ -34,5 +35,6 @@ export const useStyles = () => {
   return {
     styles,
     iconSize,
+    iconColor,
   };
 };
